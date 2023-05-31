@@ -1,0 +1,4 @@
+# Prevent SiteGround cache issues with static file resources
+<IfModule mod_headers.c>
+Header set Cache-Control "private"
+</IfModule>
