@@ -15,21 +15,7 @@
 </head>
 <body>
 
-<div id="item_container">
-    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L1</div>
-    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L2</div>
-    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L3</div>
-    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L4</div>
-    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L5</div>
-    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L6</div>
-    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L7</div>
-    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L8</div>
-    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L9</div>
-    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L10</div>
-    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L11</div>
-    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L12</div>
-    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L13</div>
-</div>
+<div id="item_container"></div>
 
 <div id="button_container">
     <div id="limit_container">
@@ -58,21 +44,7 @@
     <button id="reset">Reset all values</button>
 </div>
 
-<div id="result_container">
-    <div>L1<hr /><span>0</span></div>
-    <div>L2<hr /><span>0</span></div>
-    <div>L3<hr /><span>0</span></div>
-    <div>L4<hr /><span>0</span></div>
-    <div>L5<hr /><span>0</span></div>
-    <div>L6<hr /><span>0</span></div>
-    <div>L7<hr /><span>0</span></div>
-    <div>L8<hr /><span>0</span></div>
-    <div>L9<hr /><span>0</span></div>
-    <div>L10<hr /><span>0</span></div>
-    <div>L11<hr /><span>0</span></div>
-    <div>L12<hr /><span>0</span></div>
-    <div>L13<hr /><span>0</span></div>
-</div>
+<div id="result_container"></div>
 
 <script>
     function do_reset() {
@@ -134,8 +106,28 @@
 		} );
 		return arr_values;
     }
+	
+	function build_item_container() { 
+		let html = '';
+		for ( let i = 1; i <= 13; i++ ) { 
+			html += '<div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L' + i + '</div>';
+		}
+		document.getElementById('item_container').innerHTML = html;
+	}	
+	
+	function build_results_container() { 
+		let html = '';
+		for ( let i = 1; i <= 13; i++ ) { 
+			html += '<div>L' + i + '<hr /><span>0</span></div>';
+		}
+		document.getElementById('result_container').innerHTML = html;
+	}		
 
 	document.addEventListener( 'DOMContentLoaded', () => {
+
+		// Build html containers
+		build_item_container();
+		build_results_container();
 
 		// Increment
 		document.querySelectorAll('.up').forEach( element => {
