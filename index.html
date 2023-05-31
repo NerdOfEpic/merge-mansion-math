@@ -1,0 +1,175 @@
+<html>
+<head>
+    <title>MMMath</title>
+
+    <style>
+        div#item_container div, div#result_container div { float: left; padding:5px 10px; text-align:center; width:25px; }
+        div#item_container div { border: 1px solid #f00; }
+        div#result_container div { border: 1px solid #00f; }
+        a.up, a.down { cursor:pointer; }
+        div#button_container { clear:both; padding:25px 0; }
+        button { margin: 15px 0; }
+        #limit_container { padding-left:10px; }
+    </style>
+
+</head>
+<body>
+
+<div id="item_container">
+    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L1</div>
+    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L2</div>
+    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L3</div>
+    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L4</div>
+    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L5</div>
+    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L6</div>
+    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L7</div>
+    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L8</div>
+    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L9</div>
+    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L10</div>
+    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L11</div>
+    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L12</div>
+    <div><span>0</span><br /><a class="down">&#8659;</a>&nbsp;<a class="up">&#8657;</a><hr />L13</div>
+</div>
+
+<div id="button_container">
+    <div id="limit_container">
+        Limit at Level: <select id="limit">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13" selected="selected">13</option>
+    </select>
+    </div>
+
+    <br />
+
+    <button id="rollup">Roll up</button>
+
+    <br />
+
+    <button id="reset">Reset all values</button>
+</div>
+
+<div id="result_container">
+    <div>L1<hr /><span>0</span></div>
+    <div>L2<hr /><span>0</span></div>
+    <div>L3<hr /><span>0</span></div>
+    <div>L4<hr /><span>0</span></div>
+    <div>L5<hr /><span>0</span></div>
+    <div>L6<hr /><span>0</span></div>
+    <div>L7<hr /><span>0</span></div>
+    <div>L8<hr /><span>0</span></div>
+    <div>L9<hr /><span>0</span></div>
+    <div>L10<hr /><span>0</span></div>
+    <div>L11<hr /><span>0</span></div>
+    <div>L12<hr /><span>0</span></div>
+    <div>L13<hr /><span>0</span></div>
+</div>
+
+<script>
+    function do_reset() {
+	    document.querySelectorAll('#item_container div span').forEach( element => {
+			element.innerHTML = 0;
+	    } );
+	    document.querySelectorAll('#result_container div span').forEach( element => {
+		    element.innerHTML = 0;
+	    } );
+	    document.getElementById('limit').value = 13;
+    }
+
+    function write_results( arr_values ) {
+		let i = 0;
+	    document.querySelectorAll('#result_container div span').forEach( element => {
+		    if ( 'undefined' !== typeof arr_values[i] ) {
+			    element.innerHTML = arr_values[i];
+            }
+			i++;
+	    } );
+    }
+
+	function get_max_level() {
+		return document.getElementById('limit').value;
+    }
+
+    function do_rollup() {
+	    let arr_values = get_all_values();
+        let max_level = get_max_level();
+
+		let loop_limit = ( max_level < arr_values.length ) ? max_level : arr_values.length;
+
+		for ( let i = 0; i < loop_limit - 1; i++ ) {
+			// What's left behind will be our new current value, 0 or 1 only
+			let new_val = arr_values[i] % 2;
+
+			// this is how many merged things we can make, and roll up to the next level
+			let roll_val = Math.floor( arr_values[i] / 2 );
+
+			// Now set the current value and increment the next value if needed
+			arr_values[i] = new_val;
+		    if ( i + 1 !== loop_limit ) {
+			    arr_values[i+1] = arr_values[i+1] + roll_val;
+            }
+        }
+
+		write_results( arr_values );
+
+    }
+
+    function get_value( el ) {
+	    return parseInt( el.innerHTML );
+    }
+
+	function get_all_values() {
+		let arr_values = new Array();
+		document.querySelectorAll('#item_container div span').forEach( element => {
+			arr_values.push( get_value( element ) );
+		} );
+		return arr_values;
+    }
+
+	document.addEventListener( 'DOMContentLoaded', () => {
+
+		// Increment
+		document.querySelectorAll('.up').forEach( element => {
+			element.addEventListener( 'click', () => {
+				let el_span = element.parentElement.firstChild;
+				let current_val = get_value( el_span );
+				el_span.innerHTML = current_val + 1;
+			});
+		});
+
+		// Decrement
+		document.querySelectorAll('.down').forEach( element => {
+			element.addEventListener( 'click', () => {
+				let el_span = element.parentElement.firstChild;
+				let current_val = get_value( el_span );
+				el_span.innerHTML = ( 0 <= current_val - 1) ? current_val - 1 : 0;
+			});
+		});
+
+		// Roll up when asked
+		document.querySelectorAll('#rollup').forEach( element => {
+			element.addEventListener( 'click', () => {
+				do_rollup();
+			});
+		});
+
+		// Reset all values
+		document.querySelectorAll('#reset').forEach( element => {
+			element.addEventListener( 'click', () => {
+				do_reset();
+			});
+		});
+    });
+</script>
+
+</body>
+</html>
