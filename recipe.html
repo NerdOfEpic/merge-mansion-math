@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>MMMath - Recipe</title>
+    <script>
+	    String.prototype.format = function() {
+		    return [...arguments].reduce((p,c) => p.replace(/%s/,c), this);
+	    };
+
+		let cache_bust = Math.floor((Math.random() * 99999999) + 10000000);
+		document.write( '<link rel="stylesheet" href="css/style.css?cb=%s" />'.format( cache_bust ) );
+		document.write( '<script src="js/script.js?cb=%s"></%s>'.format( cache_bust, 'script' ) );
+    </script>
+</head>
+<body>
+
+<div id="item_container"></div>
+
+<div id="button_container">
+
+    <button id="recipe_calc">Calculate Recipe now</button>
+
+    <br/>
+
+    <button id="reset">Reset all values</button>
+</div>
+
+<div id="result_container"></div>
+
+<script>
+	document.addEventListener( 'DOMContentLoaded', () => {
+
+		// Build html containers
+		build_item_container();
+		build_results_container( 1 );
+
+		// Increment
+		document.querySelectorAll( '.up' ).forEach( element => {
+			element.addEventListener( 'click', () => {
+				let el_span = element.parentElement.firstChild;
+				let current_val = get_value( el_span );
+				el_span.innerHTML = current_val+1;
+			} );
+		} );
+
+		// Decrement
+		document.querySelectorAll( '.down' ).forEach( element => {
+			element.addEventListener( 'click', () => {
+				let el_span = element.parentElement.firstChild;
+				let current_val = get_value( el_span );
+				el_span.innerHTML = (
+					0 <= current_val-1
+				) ? current_val-1 : 0;
+			} );
+		} );
+
+		// Roll up when asked
+		document.querySelectorAll( '#recipe_calc' ).forEach( element => {
+			element.addEventListener( 'click', () => {
+				do_recipe_calculation();
+			} );
+		} );
+
+		// Reset all values
+		document.querySelectorAll( '#reset' ).forEach( element => {
+			element.addEventListener( 'click', () => {
+				do_reset();
+			} );
+		} );
+	} );
+</script>
+
+</body>
+</html>

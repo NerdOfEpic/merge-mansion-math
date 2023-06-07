@@ -1,3 +1,6 @@
+# Support index.html as "default" file
+DirectoryIndex index.html index.php
+
 # Prevent SiteGround cache issues with static file resources
 <IfModule mod_headers.c>
 Header set Cache-Control "private"

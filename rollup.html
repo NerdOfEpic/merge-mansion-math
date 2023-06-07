@@ -1,0 +1,91 @@
+<html>
+<head>
+    <title>MMMath - Rollup</title>
+    <script>
+	    String.prototype.format = function() {
+		    return [...arguments].reduce((p,c) => p.replace(/%s/,c), this);
+	    };
+
+	    let cache_bust = Math.floor((Math.random() * 99999999) + 10000000);
+	    document.write( '<link rel="stylesheet" href="css/style.css?cb=%s" />'.format( cache_bust ) );
+	    document.write( '<script src="js/script.js?cb=%s"></%s>'.format( cache_bust, 'script' ) );
+    </script>
+</head>
+<body>
+
+<div id="item_container"></div>
+
+<div id="button_container">
+    <div id="limit_container">
+        Limit at Level: <select id="limit">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13" selected="selected">13</option>
+    </select>
+    </div>
+
+    <br/>
+
+    <button id="rollup">Roll up</button>
+
+    <br/>
+
+    <button id="reset">Reset all values</button>
+</div>
+
+<div id="result_container"></div>
+
+<script>
+	document.addEventListener( 'DOMContentLoaded', () => {
+
+		// Build html containers
+		build_item_container();
+		build_results_container();
+
+		// Increment
+		document.querySelectorAll( '.up' ).forEach( element => {
+			element.addEventListener( 'click', () => {
+				let el_span = element.parentElement.firstChild;
+				let current_val = get_value( el_span );
+				el_span.innerHTML = current_val+1;
+			} );
+		} );
+
+		// Decrement
+		document.querySelectorAll( '.down' ).forEach( element => {
+			element.addEventListener( 'click', () => {
+				let el_span = element.parentElement.firstChild;
+				let current_val = get_value( el_span );
+				el_span.innerHTML = (
+					0 <= current_val-1
+				) ? current_val-1 : 0;
+			} );
+		} );
+
+		// Roll up when asked
+		document.querySelectorAll( '#rollup' ).forEach( element => {
+			element.addEventListener( 'click', () => {
+				do_rollup();
+			} );
+		} );
+
+		// Reset all values
+		document.querySelectorAll( '#reset' ).forEach( element => {
+			element.addEventListener( 'click', () => {
+				do_reset();
+			} );
+		} );
+	} );
+</script>
+
+</body>
+</html>

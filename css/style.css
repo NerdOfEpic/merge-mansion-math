@@ -1,0 +1,31 @@
+div#item_container div, div#result_container div {
+    float: left;
+    padding: 5px 10px;
+    text-align: center;
+    width: 25px;
+}
+
+div#item_container div {
+    border: 1px solid #f00;
+}
+
+div#result_container div {
+    border: 1px solid #00f;
+}
+
+a.up, a.down {
+    cursor: pointer;
+}
+
+div#button_container {
+    clear: both;
+    padding: 25px 0;
+}
+
+button {
+    margin: 15px 0;
+}
+
+#limit_container {
+    padding-left: 10px;
+}
