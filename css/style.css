@@ -29,3 +29,22 @@ button {
 #limit_container {
     padding-left: 10px;
 }
+
+#pouch_stuff_container { padding-top: 20px; }
+
+.item_button_container div {
+    float:left;
+    border: 2px solid #444;
+    width: 72px;
+    height: 72px;
+    margin: 5px;
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+#stuff_FancyBlueChest01 { background-image: url("../image/items/FancyBlueChest01.webp"); }
+#stuff_FancyBlueChest02 { background-image: url("../image/items/FancyBlueChest02.webp"); }
+#stuff_BrownChest01 { background-image: url("../image/items/BrownChest01.webp"); }
+#stuff_BrownChest02 { background-image: url("../image/items/BrownChest02.webp"); }
+#stuff_DailyTaskChest01 { background-image: url("../image/items/DailyTaskChest01.webp"); }
