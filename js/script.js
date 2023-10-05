@@ -10,6 +10,20 @@ function do_reset() {
 	}
 }
 
+function do_reset_pouch() {
+
+	// TODO: reset things
+
+	document.getElementById('pouch_container').innerHTML = 'Reset complete. Click any item to start counting again!';
+}
+
+function do_undo_pouch() {
+
+	// TODO: implement undo queue
+
+	alert('Sorry, the undo isnt done. Please try again later');
+}
+
 function write_results( arr_values ) {
 	let i = 0;
 	document.querySelectorAll( '#result_container div span' ).forEach( element => {
@@ -106,3 +120,7 @@ function do_recipe_calculation() {
 	write_results( arr_results );
 
 }
+
+/******************************************************************************
+ * Pouch functions
+ *****************************************************************************/
