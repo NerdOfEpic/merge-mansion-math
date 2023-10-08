@@ -30,21 +30,40 @@ button {
     padding-left: 10px;
 }
 
+/**
+ * POUCH CALCULATOR STYLES
+ */
 #pouch_stuff_container { padding-top: 20px; }
 
-.item_button_container div {
+.item_button_container { clear:both; }
+
+.item_button_container button {
     float:left;
-    border: 2px solid #444;
-    width: 72px;
-    height: 72px;
+    padding: 0;
     margin: 5px;
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    height: 72px;
+    width: 72px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: #4f5165;
+    background-color: transparent;
     background-size:     cover;
     background-repeat:   no-repeat;
     background-position: center center;
 }
 
-#stuff_FancyBlueChest01 { background-image: url("../image/items/FancyBlueChest01.webp"); }
-#stuff_FancyBlueChest02 { background-image: url("../image/items/FancyBlueChest02.webp"); }
-#stuff_BrownChest01 { background-image: url("../image/items/BrownChest01.webp"); }
-#stuff_BrownChest02 { background-image: url("../image/items/BrownChest02.webp"); }
-#stuff_DailyTaskChest01 { background-image: url("../image/items/DailyTaskChest01.webp"); }
+.item_button_container button:focus {
+    outline: 0;
+}
+
+.item_button_container button:active {
+    transform: scale(0.95);     /* Scaling button from its original size */
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+
+}

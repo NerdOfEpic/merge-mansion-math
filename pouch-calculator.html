@@ -29,24 +29,66 @@
 
 <div id="pouch_stuff_container">
 
-    <div class="item_button_container" id="stuff_tax_chests">
-        <div id="stuff_FancyBlueChest01"></div>
-        <div id="stuff_FancyBlueChest02"></div>
-        <div id="stuff_BrownChest01"></div>
-        <div id="stuff_BrownChest02"></div>
-        <div id="stuff_DailyTaskChest01"></div>
+    <div class="item_button_container">
+        <p>Chests</p>
+        <button id="FancyBlueChest01"></button>
+        <button id="FancyBlueChest02"></button>
+        <button id="BrownChest01"></button>
+        <button id="BrownChest02"></button>
+        <button id="DailyTaskChest01"></button>
+    </div>
+
+    <div class="item_button_container">
+        <p>Misc</p>
+        <button id="BronzeCoinChest01"></button>
+        <button id="EnergyChest01"></button>
+        <button id="GiftBox01"></button>
+    </div>
+
+    <div class="item_button_container">
+        <p>Piggies</p>
+        <button id="PiggyBank01"></button>
+        <button id="PiggyBank02"></button>
+        <button id="PiggyBank03"></button>
+        <button id="PiggyBank04"></button>
+    </div>
+
+    <div class="item_button_container">
+        <p>SUUUUUPER RANDOM</p>
+        <button id="FishingTools05"></button>
+        <button id="BrickMasonTools03"></button>
+        <button id="NumberStamps08"></button>
+        <button id="RewardboxGardening_Gloves_Box"></button>
+        <button id="Mosaic11"></button>
+        <button id="CharliesKit01"></button>
+        <button id="ShippingContainer02"></button>
+        <button id="RewardboxBench"></button>
+        <button id="LindsaysShoes06"></button>
     </div>
 
 </div>
 
 <script>
+    // custom logic for custom names
+    function get_base( str ) {
+        if ( str.startsWith('Rewardbox') ) {
+            return 'Rewardbox';
+        }
+        return str.substring( 0, str.length-2 );
+    }
+
     document.addEventListener( 'DOMContentLoaded', () => {
 
-        // Increment
-        document.querySelectorAll( '.item_button_container div' ).forEach( element => {
+        // Bindings on the item buttons
+        document.querySelectorAll( '.item_button_container button' ).forEach( element => {
+
+            // JS magic to set the button background images while we're here on dom ready
+            let base = get_base( element.id );
+            element.style.backgroundImage = "url('image/" + base + "/" + element.id + ".webp')";
+
+            // Add click handlers to the buttons
             element.addEventListener( 'click', () => {
-                let el_item = element.id.replace('stuff_', '');
-                document.getElementById('pouch_container').innerHTML = 'You just clicked on ' + el_item;
+                document.getElementById('pouch_container').innerHTML = 'You just clicked on ' + element.id;
             } );
         } );
 
