@@ -53,17 +53,37 @@
         <button id="PiggyBank04"></button>
     </div>
 
+    <div class="item_button_container">
+        <p>SUUUUUPER RANDOM</p>
+        <button id="FishingTools05"></button>
+        <button id="BrickMasonTools03"></button>
+        <button id="NumberStamps08"></button>
+        <button id="RewardboxGardening_Gloves_Box"></button>
+        <button id="Mosaic11"></button>
+        <button id="CharliesKit01"></button>
+        <button id="ShippingContainer02"></button>
+        <button id="RewardboxBench"></button>
+        <button id="LindsaysShoes06"></button>
+    </div>
+
 </div>
 
 <script>
+    // custom logic for custom names
+    function get_base( str ) {
+        if ( str.startsWith('Rewardbox') ) {
+            return 'Rewardbox';
+        }
+        return str.substring( 0, str.length-2 );
+    }
+
     document.addEventListener( 'DOMContentLoaded', () => {
 
         // Bindings on the item buttons
         document.querySelectorAll( '.item_button_container button' ).forEach( element => {
 
             // JS magic to set the button background images while we're here on dom ready
-            let base = element.id.substring(0,element.id.length-2);
-            console.log(base);
+            let base = get_base( element.id );
             element.style.backgroundImage = "url('image/" + base + "/" + element.id + ".webp')";
 
             // Add click handlers to the buttons
