@@ -35,6 +35,8 @@ button {
  */
 #pouch_stuff_container { padding-top: 20px; }
 
+.item_button_container { clear:both; }
+
 .item_button_container button {
     float:left;
     padding: 0;
@@ -65,98 +67,3 @@ button {
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 
 }
-
-#stuff_FancyBlueChest01 { background-image: url("../image/items/FancyBlueChest01.webp"); }
-#stuff_FancyBlueChest02 { background-image: url("../image/items/FancyBlueChest02.webp"); }
-#stuff_BrownChest01 { background-image: url("../image/items/BrownChest01.webp"); }
-#stuff_BrownChest02 { background-image: url("../image/items/BrownChest02.webp"); }
-#stuff_DailyTaskChest01 { background-image: url("../image/items/DailyTaskChest01.webp"); }
-#stuff_Screws01 { background-image: url("../image/items/Screws01.webp"); }
-#stuff_Screws02 { background-image: url("../image/items/Screws02.webp"); }
-#stuff_Screws03 { background-image: url("../image/items/Screws03.webp"); }
-#stuff_Screws04 { background-image: url("../image/items/Screws04.webp"); }
-#stuff_Screws05 { background-image: url("../image/items/Screws05.webp"); }
-#stuff_Paint01 { background-image: url("../image/items/Paint01.webp"); }
-#stuff_Paint02 { background-image: url("../image/items/Paint02.webp"); }
-#stuff_Paint03 { background-image: url("../image/items/Paint03.webp"); }
-#stuff_Paint04 { background-image: url("../image/items/Paint04.webp"); }
-#stuff_Gems01 { background-image: url("../image/items/Gems01.webp"); }
-#stuff_Gems02 { background-image: url("../image/items/Gems02.webp"); }
-#stuff_Gems03 { background-image: url("../image/items/Gems03.webp"); }
-#stuff_Gems04 { background-image: url("../image/items/Gems04.webp"); }
-#stuff_BronzeCoins01 { background-image: url("../image/items/BronzeCoins01.webp"); }
-#stuff_BronzeCoins02 { background-image: url("../image/items/BronzeCoins02.webp"); }
-#stuff_BronzeCoins03 { background-image: url("../image/items/BronzeCoins03.webp"); }
-#stuff_BronzeCoins04 { background-image: url("../image/items/BronzeCoins04.webp"); }
-#stuff_BronzeCoins05 { background-image: url("../image/items/BronzeCoins05.webp"); }
-#stuff_BronzeCoins06 { background-image: url("../image/items/BronzeCoins06.webp"); }
-#stuff_BronzeCoinChest01 { background-image: url("../image/items/BronzeCoinChest01.webp"); }
-#stuff_EnergyChest01 { background-image: url("../image/items/EnergyChest01.webp"); }
-#stuff_Energy01 { background-image: url("../image/items/Energy01.webp"); }
-#stuff_Energy02 { background-image: url("../image/items/Energy02.webp"); }
-#stuff_Energy03 { background-image: url("../image/items/Energy03.webp"); }
-#stuff_Energy04 { background-image: url("../image/items/Energy04.webp"); }
-#stuff_Energy05 { background-image: url("../image/items/Energy05.webp"); }
-#stuff_Energy05 { background-image: url("../image/items/Energy05.webp"); }
-#stuff_UnlimitedEnergy1 { background-image: url("../image/items/UnlimitedEnergy1.webp"); }
-#stuff_UnlimitedEnergy2 { background-image: url("../image/items/UnlimitedEnergy2.webp"); }
-#stuff_UnlimitedEnergy20 { background-image: url("../image/items/UnlimitedEnergy20.webp"); }
-#stuff_GiftBox01 { background-image: url("../image/items/GiftBox01.webp"); }
-#stuff_TimeSkipBoosterShards01 { background-image: url("../image/items/TimeSkipBoosterShards01.webp"); }
-#stuff_TimeSkipBoosterShards02 { background-image: url("../image/items/TimeSkipBoosterShards02.webp"); }
-#stuff_TimeSkipBoosterShards03 { background-image: url("../image/items/TimeSkipBoosterShards03.webp"); }
-#stuff_TimeSkipBoosterShards04 { background-image: url("../image/items/TimeSkipBoosterShards04.webp"); }
-#stuff_TimeSkipBooster01 { background-image: url("../image/items/TimeSkipBooster01.webp"); }
-#stuff_TimeSkipBooster02 { background-image: url("../image/items/TimeSkipBooster02.webp"); }
-#stuff_TimeSkipBooster03 { background-image: url("../image/items/TimeSkipBooster03.webp"); }
-#stuff_TimeSkipBooster04 { background-image: url("../image/items/TimeSkipBooster04.webp"); }
-#stuff_Rewardbox_Cleaning { background-image: url("../image/items/Rewardbox_Cleaning.webp"); }
-#stuff_Rewardbox_Detergent { background-image: url("../image/items/Rewardbox_Detergent.webp"); }
-#stuff_Rewardbox_Flower { background-image: url("../image/items/Rewardbox_Flower.webp"); }
-#stuff_Rewardbox_Orange_Flower { background-image: url("../image/items/Rewardbox_Orange_Flower.webp"); }
-#stuff_Rewardbox_Bench { background-image: url("../image/items/Rewardbox_Bench.webp"); }
-#stuff_Rewardbox_Paint { background-image: url("../image/items/Rewardbox_Paint.webp"); }
-#stuff_Rewardbox_Tool { background-image: url("../image/items/Rewardbox_Tool.webp"); }
-#stuff_Rewardbox_Lamp { background-image: url("../image/items/Rewardbox_Lamp.webp"); }
-#stuff_Rewardbox_Planted_Flower_Box { background-image: url("../image/items/Rewardbox_Lamp.webp"); }
-#stuff_Rewardbox_Gardening_Gloves_Box { background-image: url("../image/items/Rewardbox_Gardening_Gloves_Box.webp"); }
-#stuff_Rewardbox_Screws_Box { background-image: url("../image/items/Rewardbox_Screws_Box.webp"); }
-#stuff_Bottle01 { background-image: url("../image/items/Bottle01.webp"); }
-#stuff_Bottle02 { background-image: url("../image/items/Bottle02.webp"); }
-#stuff_Bottle03 { background-image: url("../image/items/Bottle03.webp"); }
-#stuff_Bottle04 { background-image: url("../image/items/Bottle04.webp"); }
-#stuff_Bottle05 { background-image: url("../image/items/Bottle05.webp"); }
-#stuff_Bottle06 { background-image: url("../image/items/Bottle06.webp"); }
-#stuff_Bottle07 { background-image: url("../image/items/Bottle07.webp"); }
-#stuff_Bottle08 { background-image: url("../image/items/Bottle08.webp"); }
-#stuff_ExperiencePoints2901 { background-image: url("../image/items/ExperiencePoints2901.webp"); }
-#stuff_ExperiencePoints2902 { background-image: url("../image/items/ExperiencePoints2902.webp"); }
-#stuff_ExperiencePoints2903 { background-image: url("../image/items/ExperiencePoints2903.webp"); }
-#stuff_ExperiencePoints2904 { background-image: url("../image/items/ExperiencePoints2904.webp"); }
-#stuff_ExperiencePoints2905 { background-image: url("../image/items/ExperiencePoints2905.webp"); }
-#stuff_GardeningTools01 { background-image: url("../image/items/GardeningTools01.webp"); }
-#stuff_GardeningTools02 { background-image: url("../image/items/GardeningTools02.webp"); }
-#stuff_GardeningTools03 { background-image: url("../image/items/GardeningTools03.webp"); }
-#stuff_GardeningTools04 { background-image: url("../image/items/GardeningTools04.webp"); }
-#stuff_GardeningTools05 { background-image: url("../image/items/GardeningTools05.webp"); }
-#stuff_GardeningTools06 { background-image: url("../image/items/GardeningTools06.webp"); }
-#stuff_GardeningTools07 { background-image: url("../image/items/GardeningTools07.webp"); }
-#stuff_GardeningTools08 { background-image: url("../image/items/GardeningTools08.webp"); }
-#stuff_GardeningTools09 { background-image: url("../image/items/GardeningTools09.webp"); }
-#stuff_GardeningTools10 { background-image: url("../image/items/GardeningTools10.webp"); }
-#stuff_GardeningTools11 { background-image: url("../image/items/GardeningTools11.webp"); }
-#stuff_GardeningTools12 { background-image: url("../image/items/GardeningTools12.webp"); }
-#stuff_GardeningTools13 { background-image: url("../image/items/GardeningTools13.webp"); }
-#stuff_GardeningTools14 { background-image: url("../image/items/GardeningTools14.webp"); }
-#stuff_BlueBox01 { background-image: url("../image/items/BlueBox01.webp"); }
-#stuff_Tools01 { background-image: url("../image/items/Tools01.webp"); }
-#stuff_Tools02 { background-image: url("../image/items/Tools02.webp"); }
-#stuff_Tools03 { background-image: url("../image/items/Tools03.webp"); }
-#stuff_Tools04 { background-image: url("../image/items/Tools04.webp"); }
-#stuff_Tools05 { background-image: url("../image/items/Tools05.webp"); }
-#stuff_Tools06 { background-image: url("../image/items/Tools06.webp"); }
-#stuff_Tools07 { background-image: url("../image/items/Tools07.webp"); }
-#stuff_Tools08 { background-image: url("../image/items/Tools08.webp"); }
-#stuff_Tools09 { background-image: url("../image/items/Tools09.webp"); }
-#stuff_Tools10 { background-image: url("../image/items/Tools10.webp"); }
-

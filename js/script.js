@@ -21,7 +21,7 @@ function do_undo_pouch() {
 
 	// TODO: implement undo queue
 
-	alert('Sorry, the undo isnt done. Please try again later');
+	alert('Sorry, the undo is undone. Please try again later');
 }
 
 function write_results( arr_values ) {

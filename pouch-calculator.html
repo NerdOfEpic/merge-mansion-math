@@ -29,12 +29,28 @@
 
 <div id="pouch_stuff_container">
 
-    <div class="item_button_container" id="stuff_tax_chests">
-        <button id="stuff_FancyBlueChest01"></button>
-        <button id="stuff_FancyBlueChest02"></button>
-        <button id="stuff_BrownChest01"></button>
-        <button id="stuff_BrownChest02"></button>
-        <button id="stuff_DailyTaskChest01"></button>
+    <div class="item_button_container">
+        <p>Chests</p>
+        <button id="FancyBlueChest01"></button>
+        <button id="FancyBlueChest02"></button>
+        <button id="BrownChest01"></button>
+        <button id="BrownChest02"></button>
+        <button id="DailyTaskChest01"></button>
+    </div>
+
+    <div class="item_button_container">
+        <p>Misc</p>
+        <button id="BronzeCoinChest01"></button>
+        <button id="EnergyChest01"></button>
+        <button id="GiftBox01"></button>
+    </div>
+
+    <div class="item_button_container">
+        <p>Piggies</p>
+        <button id="PiggyBank01"></button>
+        <button id="PiggyBank02"></button>
+        <button id="PiggyBank03"></button>
+        <button id="PiggyBank04"></button>
     </div>
 
 </div>
@@ -42,11 +58,17 @@
 <script>
     document.addEventListener( 'DOMContentLoaded', () => {
 
-        // Increment
-        document.querySelectorAll( '.item_button_container div' ).forEach( element => {
+        // Bindings on the item buttons
+        document.querySelectorAll( '.item_button_container button' ).forEach( element => {
+
+            // JS magic to set the button background images while we're here on dom ready
+            let base = element.id.substring(0,element.id.length-2);
+            console.log(base);
+            element.style.backgroundImage = "url('image/" + base + "/" + element.id + ".webp')";
+
+            // Add click handlers to the buttons
             element.addEventListener( 'click', () => {
-                let el_item = element.id.replace('stuff_', '');
-                document.getElementById('pouch_container').innerHTML = 'You just clicked on ' + el_item;
+                document.getElementById('pouch_container').innerHTML = 'You just clicked on ' + element.id;
             } );
         } );
 
