@@ -25,50 +25,51 @@
     Bacon Ipsum and some other stuff goes here
 </div>
 
-<hr />
-
 <div id="pouch_stuff_container">
 
     <div class="item_button_container">
         <p>Chests</p>
-        <button id="FancyBlueChest01"></button>
-        <button id="FancyBlueChest02"></button>
-        <button id="BrownChest01"></button>
-        <button id="BrownChest02"></button>
-        <button id="DailyTaskChest01"></button>
+        <button data-item="FancyBlueChest01"></button>
+        <button data-item="FancyBlueChest02"></button>
+        <button data-item="BrownChest01"></button>
+        <button data-item="BrownChest02"></button>
+        <button data-item="DailyTaskChest01"></button>
     </div>
 
     <div class="item_button_container">
         <p>Misc</p>
-        <button id="BronzeCoinChest01"></button>
-        <button id="EnergyChest01"></button>
-        <button id="GiftBox01"></button>
+        <button data-item="BronzeCoinChest01"></button>
+        <button data-item="EnergyChest01"></button>
+        <button data-item="GiftBox01"></button>
     </div>
 
     <div class="item_button_container">
         <p>Piggies</p>
-        <button id="PiggyBank01"></button>
-        <button id="PiggyBank02"></button>
-        <button id="PiggyBank03"></button>
-        <button id="PiggyBank04"></button>
+        <button data-item="PiggyBank01"></button>
+        <button data-item="PiggyBank02"></button>
+        <button data-item="PiggyBank03"></button>
+        <button data-item="PiggyBank04"></button>
     </div>
 
     <div class="item_button_container">
         <p>SUUUUUPER RANDOM</p>
-        <button id="FishingTools05"></button>
-        <button id="BrickMasonTools03"></button>
-        <button id="NumberStamps08"></button>
-        <button id="RewardboxGardening_Gloves_Box"></button>
-        <button id="Mosaic11"></button>
-        <button id="CharliesKit01"></button>
-        <button id="ShippingContainer02"></button>
-        <button id="RewardboxBench"></button>
-        <button id="LindsaysShoes06"></button>
+        <button data-item="FishingTools05"></button>
+        <button data-item="BrickMasonTools03"></button>
+        <button data-item="NumberStamps08"></button>
+        <button data-item="RewardboxGardening_Gloves_Box"></button>
+        <button data-item="Mosaic11"></button>
+        <button data-item="CharliesKit01"></button>
+        <button data-item="ShippingContainer02"></button>
+        <button data-item="RewardboxBench"></button>
+        <button data-item="LindsaysShoes06"></button>
     </div>
 
 </div>
 
 <script>
+
+    var pouch = [];
+
     // custom logic for custom names
     function get_base( str ) {
         if ( str.startsWith('Rewardbox') ) {
@@ -77,18 +78,80 @@
         return str.substring( 0, str.length-2 );
     }
 
+    function update_display() {
+        let str_result = get_stack();
+        str_result += get_counts();
+        document.getElementById('pouch_container').innerHTML = str_result;
+
+        let count_results = document.querySelectorAll('.item_counts button');
+        count_results.forEach((element) => {
+            set_button_bg( element );
+        });
+
+        let stack_results = document.querySelectorAll('.item_stack button');
+        stack_results.forEach((element) => {
+            set_button_bg( element );
+        });
+
+    }
+
+    function get_counts() {
+        let str_result = '';
+        let arr_count = [];
+
+        // first loop through and get all our items
+        for ( let i in pouch ) {
+            if ( 'number' === typeof arr_count[ pouch[i] ] ) {
+                arr_count[ pouch[i] ]++;
+            } else {
+                arr_count[pouch[i]] = 1;
+            }
+        }
+
+        // now go through our count array to display our info
+        for ( let i in arr_count ) {
+            str_result += '<div><button class="img_count" data-item="' + i + '"></button> <span>has ' + arr_count[i] + ' ' + get_copy( arr_count[i] ) + ' in your pouch</span></div>';
+        }
+
+        return '<div class="left item_counts">' + str_result + '</div>';
+    }
+
+    function get_stack() {
+        let str_result = '';
+
+        pouch.forEach((item) => {
+            str_result += '<button class="img_stack" data-item="' + item + '"></button>';
+        });
+
+        return '<div class="left item_stack">' + str_result + '</div>';
+    }
+
+    function get_copy( qty ) {
+        if ( 1 === qty ) { return 'copy'; }
+        return 'copies';
+    }
+
+    function get_item_bg( item ) {
+        return 'image/' + get_base( item ) + '/' + item + '.webp';
+    }
+
+    function set_button_bg( element ) {
+        let item = element.dataset.item;
+        element.style.backgroundImage = "url('" + get_item_bg( item ) + "')";
+    }
+
     document.addEventListener( 'DOMContentLoaded', () => {
 
         // Bindings on the item buttons
         document.querySelectorAll( '.item_button_container button' ).forEach( element => {
 
             // JS magic to set the button background images while we're here on dom ready
-            let base = get_base( element.id );
-            element.style.backgroundImage = "url('image/" + base + "/" + element.id + ".webp')";
+            set_button_bg( element );
 
             // Add click handlers to the buttons
             element.addEventListener( 'click', () => {
-                document.getElementById('pouch_container').innerHTML = 'You just clicked on ' + element.id;
+                pouch.push( element.dataset.item );
+                update_display();
             } );
         } );
 

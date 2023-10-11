@@ -37,7 +37,7 @@ button {
 
 .item_button_container { clear:both; }
 
-.item_button_container button {
+.item_button_container button, .item_counts div button, .item_stack button {
     float:left;
     padding: 0;
     margin: 5px;
@@ -57,6 +57,10 @@ button {
     background-position: center center;
 }
 
+.item_counts div { clear: both; }
+.item_counts div button { width: 32px; height:32px; float:left;  }
+.item_stack button { width:24px;height:24px; }
+
 .item_button_container button:focus {
     outline: 0;
 }
@@ -67,3 +71,8 @@ button {
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 
 }
+
+.left { float:left;width:33%; }
+#pouch_container { width: 50%; float: right; vertical-align: top; }
+#pouch_stuff_container { width:50%; float:left; vertical-align: top; }
+
