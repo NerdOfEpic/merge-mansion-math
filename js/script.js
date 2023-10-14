@@ -13,7 +13,7 @@ function do_reset() {
 function do_reset_pouch() {
 
 	// TODO: reset things
-
+	pouch = [];
 	document.getElementById('pouch_container').innerHTML = 'Reset complete. Click any item to start counting again!';
 }
 
